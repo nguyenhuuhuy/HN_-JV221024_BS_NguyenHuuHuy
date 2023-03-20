@@ -2,10 +2,7 @@ package ra.run;
 
 import ra.bussinessImp.Product;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class ProductManagement {
     static List<Product> listProduct = new ArrayList<>();
@@ -31,6 +28,7 @@ public class ProductManagement {
                     displayListProduct();
                     break;
                 case 3:
+                    Collections.sort(listProduct);
                     break;
                 case 4:
                     System.out.println("Nhập id sản phẩm muốn xóa");

@@ -2,9 +2,10 @@ package ra.bussinessImp;
 
 import ra.bussiness.IProduct;
 
+import java.util.Comparator;
 import java.util.Scanner;
 
-public class Product implements IProduct {
+public class Product implements IProduct, Comparable<Product> {
     private int productId;
     private String productName;
     private String title;
@@ -109,13 +110,10 @@ public class Product implements IProduct {
         this.exportPrice = Integer.parseInt(sc.nextLine());
         System.out.println("Trạng thái: ");
         this.productStatus = Boolean.parseBoolean(sc.nextLine());
-
+        this.interest = this.exportPrice-this.importPrice;
     }
 
-    public float profit(){
-       float interest = this.exportPrice - this.importPrice;
-        return interest = this.interest;
-    }
+
     @Override
     public void displayData() {
 //        System.out.println("\nThông tin sản phẩm ");
@@ -127,5 +125,10 @@ public class Product implements IProduct {
         System.out.print(", Giá xuất: " + exportPrice);
         System.out.print(", Trạng thái: " + productStatus+"\n");
         System.out.println("-------------------------------------------------------------------------");
+    }
+
+    @Override
+    public int compareTo(Product o) {
+        return (int) (this.interest - o.getInterest());
     }
 }
